@@ -110,7 +110,6 @@
 //   populateCategories();
 //   showRandomQuote();
 // });
-
 const categorySelect = document.getElementById("categorySelect");
 const categoryFilter = document.getElementById("categoryFilter");
 const quoteDisplay = document.getElementById("quoteDisplay");
@@ -196,8 +195,30 @@ async function fetchQuotesFromServer() {
   }
 }
 
+// Sync new quotes to server
+async function syncQuotesToServer() {
+  try {
+    const newQuotes = quotes.map((q) => ({
+      title: q.text,
+      body: q.category,
+      userId: 1,
+    }));
+    await fetch(SERVER_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newQuotes),
+    });
+    console.log("Quotes synced to server");
+  } catch (error) {
+    console.error("Error syncing quotes:", error);
+  }
+}
+
 // Periodically sync data every 30 seconds
 setInterval(fetchQuotesFromServer, 30000);
+setInterval(syncQuotesToServer, 60000);
 
 // Event listeners
 document.addEventListener("DOMContentLoaded", () => {
