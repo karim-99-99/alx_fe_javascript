@@ -90,3 +90,23 @@ const addQuoteBtn = document.getElementById("addQuoteBtn");
 
 // Add event listener to call addQuote when clicked
 addQuoteBtn.addEventListener("click", addQuote);
+
+function createAddQuoteForm() {
+  const formContainer = document.getElementById("formContainer");
+
+  formContainer.innerHTML = `
+    <input type="text" id="newQuoteText" placeholder="Enter new quote" required>
+    <input type="text" id="newQuoteCategory" placeholder="Enter category" required>
+    <button id="addQuoteBtn">Add Quote</button>
+  `;
+
+  // Add event listener for the new button
+  document.getElementById("addQuoteBtn").addEventListener("click", addQuote);
+}
+
+// Call this function when the page loads to generate the form dynamically
+document.addEventListener("DOMContentLoaded", () => {
+  createAddQuoteForm();
+  populateCategories();
+  showRandomQuote();
+});
