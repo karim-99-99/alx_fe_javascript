@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,7 +10,7 @@
     <label for="categorySelect">Choose a category:</label>
     <select id="categorySelect"></select>
     <!-- Added dropdown here -->
-    <div id="quoteDisplay"></div>
+    <!-- <div id="quoteDisplay"></div>
     <div id="formContainer"></div>
 
     <button id="newQuote">Show New Quote</button>
@@ -24,5 +24,31 @@
       <button id="addQuoteBtn">Add Quote</button>
     </div>
     <script src="./script.js"></script>
+  </body>
+</html> --> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic Quote Generator</title>
+  </head>
+  <body>
+    <h1>Dynamic Quote Generator</h1>
+    <label for="categorySelect">Choose a category:</label>
+    <select id="categorySelect"></select>
+    <!-- Added dropdown here -->
+    <div id="quoteDisplay"></div>
+    <button id="newQuote">Show New Quote</button>
+    <div>
+      <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
+      <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
+      <button id="addQuoteBtn">Add Quote</button>
+    </div>
+    <div>
+      <button id="exportJsonBtn">Export Quotes to JSON</button>
+      <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
+    </div>
+    <script src="./task1.js"></script>
   </body>
 </html>
