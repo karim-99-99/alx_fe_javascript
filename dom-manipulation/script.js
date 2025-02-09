@@ -190,6 +190,7 @@ async function fetchQuotesFromServer() {
     });
     localStorage.setItem("quotes", JSON.stringify(quotes));
     populateCategories();
+    console.log("Quotes synced with server!");
   } catch (error) {
     console.error("Error fetching quotes:", error);
   }
@@ -210,7 +211,7 @@ async function syncQuotesToServer() {
       },
       body: JSON.stringify(newQuotes),
     });
-    console.log("Quotes synced to server");
+    console.log("Quotes synced with server!");
   } catch (error) {
     console.error("Error syncing quotes:", error);
   }
